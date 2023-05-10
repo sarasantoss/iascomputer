@@ -1,0 +1,42 @@
+.org 0x000
+LOAD M(0x0FF)
+SUB M(0x102)
+LOAD MQ, M(0x100)
+STOR M(0x0FF)
+LOAD M(0x101)
+STOR M(0x103)
+
+laco:
+contador:
+LOAD M(0x0FF)
+SUB M(0x100)
+STOR M(0x0FF)
+LOAD M(0x0FF)
+
+multiplicacao:
+LOAD MQ, M(0x103)
+MUL M(0X101)
+LOAD MQ
+STOR M(0x103)
+LOAD M(0x0FF)
+JUMP+ M(003,0:19)
+
+multiplicacao2:
+LOAD MQ, M(0x103)
+MUL M(0x104)
+LOAD MQ
+STOR M(0x103)
+
+.org 0x0FF
+var_termo:
+ .word 0000000007
+var_um:
+ .word 0000000001
+var_q:
+ .word 0000000002
+var_tres:
+ .word 0000000003
+var_result:
+ .word 0000000000
+var_a1:
+ .word 0000000002
